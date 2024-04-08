@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VQ5-ar-Zz5">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="vkB-Gj-aeR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VQ5-ar-Zz5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hcx-kt-Yov">
+                        <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PsS-BV-4Mx" kind="relationship" relationship="rootViewController" id="h65-pM-UKh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PhR-CI-RRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-365.21739130434787" y="123.88392857142857"/>
+        </scene>
+        <!--New View Controller-->
+        <scene sceneID="nMh-Tm-fd0">
+            <objects>
+                <viewController id="PsS-BV-4Mx" customClass="TRTCNewViewController" customModule="LiteAVApollo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oGW-Mu-ioi"/>
+                        <viewControllerLayoutGuide type="bottom" id="XXz-mR-aac"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OuH-ki-ZpZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="zHR-RY-agi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="t2I-az-bJD">
+                                        <rect key="frame" x="8" y="8" width="359" height="624.66666666666663"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" id="BWO-Nd-aqv">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="62.333333333333336"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="250" text="请输入房间号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zz-Dm-qts">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5cd-mt-rMG">
+                                                        <rect key="frame" x="0.0" y="28.333333333333336" width="359" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" textContentType="name"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="PsS-BV-4Mx" id="GIF-q1-Ed9"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" id="sm3-VT-x8F">
+                                                <rect key="frame" x="0.0" y="77.333333333333329" width="359" height="62.333333333333329"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="251" text="请输入用户名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3B-n9-tYq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="otg-eQ-Gjv">
+                                                        <rect key="frame" x="0.0" y="28.333333333333343" width="359" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" textContentType="name"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="PsS-BV-4Mx" id="1Gf-Gy-bvU"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <viewLayoutGuide key="safeArea" id="dB0-ae-UdM"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Q1q-Kn-yVe">
+                                                <rect key="frame" x="0.0" y="154.66666666666666" width="359" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="厂商选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15U-Du-vom">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LuO-wo-YPv">
+                                                        <rect key="frame" x="242" y="0.0" width="117" height="32"/>
+                                                        <segments>
+                                                            <segment title="腾讯云"/>
+                                                            <segment title="声网"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="abK-qa-bIi">
+                                                <rect key="frame" x="0.0" y="200.66666666666666" width="359" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="房间类型" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7D-Zt-9nJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="UMp-7o-jHb">
+                                                        <rect key="frame" x="268" y="0.0" width="91" height="32"/>
+                                                        <segments>
+                                                            <segment title="视频"/>
+                                                            <segment title="语音"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                                <viewLayoutGuide key="safeArea" id="hV7-JY-wSS"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="E6f-DT-VY6">
+                                                <rect key="frame" x="0.0" y="246.66666666666663" width="359" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="应用场景" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTK-cg-ccj">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tnZ-Vu-i72">
+                                                        <rect key="frame" x="214" y="0.0" width="145" height="32"/>
+                                                        <segments>
+                                                            <segment title="通话场景"/>
+                                                            <segment title="直播场景"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="onSceneChanged:" destination="PsS-BV-4Mx" eventType="valueChanged" id="gtI-te-9XS"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                                <viewLayoutGuide key="safeArea" id="Xp6-jd-J4I"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="1uL-M3-XiK">
+                                                <rect key="frame" x="0.0" y="292.66666666666669" width="359" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="角色选择" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raw-ih-s7q">
+                                                        <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3OV-sa-c5h">
+                                                        <rect key="frame" x="268" y="0.0" width="91" height="32"/>
+                                                        <segments>
+                                                            <segment title="主播"/>
+                                                            <segment title="观众"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                                <viewLayoutGuide key="safeArea" id="9JA-UL-fr0"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qxz-r4-ivF">
+                                                <rect key="frame" x="0.0" y="338.66666666666669" width="359" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帧率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCm-Zh-xNM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="YLH-yn-kJv">
+                                                        <rect key="frame" x="180" y="0.0" width="179" height="32"/>
+                                                        <segments>
+                                                            <segment title="10"/>
+                                                            <segment title="15"/>
+                                                            <segment title="20"/>
+                                                            <segment title="24"/>
+                                                            <segment title="30"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Xr6-9k-dPH">
+                                                <rect key="frame" x="0.0" y="384.66666666666669" width="359" height="68"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eQg-Bx-nni">
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="34"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="码率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-wI-8rR">
+                                                                <rect key="frame" x="0.0" y="0.0" width="271" height="34"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nth-A8-hdw">
+                                                                <rect key="frame" x="279" y="0.0" width="80" height="34"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="80" id="o39-lG-aXI"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                                <connections>
+                                                                    <action selector="onBitrateChanged:" destination="PsS-BV-4Mx" eventType="editingDidEnd" id="6qn-tV-0Ng"/>
+                                                                    <outlet property="delegate" destination="PsS-BV-4Mx" id="wG9-6L-v2j"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ngu-Jb-1cE">
+                                                        <rect key="frame" x="-2" y="38" width="363" height="31"/>
+                                                        <connections>
+                                                            <action selector="onBitrateChanged:" destination="PsS-BV-4Mx" eventType="valueChanged" id="ljE-Ld-GlA"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G85-qM-JPR">
+                                                <rect key="frame" x="0.0" y="467.66666666666669" width="359" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分辨率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTZ-6v-ulD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="52" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-ah-hQa">
+                                                        <rect key="frame" x="206" y="0.0" width="153" height="32"/>
+                                                        <segments>
+                                                            <segment title="540x960"/>
+                                                            <segment title="其它"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="onResolutionChanged:" destination="PsS-BV-4Mx" eventType="valueChanged" id="5ew-lk-I9Y"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nqA-DS-Cjs">
+                                                <rect key="frame" x="0.0" y="513.66666666666663" width="359" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音质" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYI-8K-tho">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34.666666666666664" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="WDq-Hs-DNb">
+                                                        <rect key="frame" x="141" y="0.0" width="218" height="32"/>
+                                                        <segments>
+                                                            <segment title="语音模式"/>
+                                                            <segment title="默认模式"/>
+                                                            <segment title="音乐模式"/>
+                                                        </segments>
+                                                    </segmentedControl>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFB-zC-a0b">
+                                                <rect key="frame" x="0.0" y="559.66666666666663" width="359" height="65"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="65" id="6Qq-Do-USt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="创建并自动加入该房间"/>
+                                                <connections>
+                                                    <action selector="onTapEnterRoom:" destination="PsS-BV-4Mx" eventType="touchUpInside" id="NxC-DE-R3d"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="t2I-az-bJD" secondAttribute="bottom" id="4UE-wO-RZ5"/>
+                                    <constraint firstAttribute="trailing" secondItem="t2I-az-bJD" secondAttribute="trailing" constant="8" id="UQh-G1-YJB"/>
+                                    <constraint firstItem="t2I-az-bJD" firstAttribute="top" secondItem="zHR-RY-agi" secondAttribute="top" constant="8" id="fKD-AJ-36m"/>
+                                    <constraint firstItem="t2I-az-bJD" firstAttribute="leading" secondItem="zHR-RY-agi" secondAttribute="leading" constant="8" id="okg-Dg-frx"/>
+                                    <constraint firstItem="t2I-az-bJD" firstAttribute="width" secondItem="zHR-RY-agi" secondAttribute="width" constant="-16" id="vot-Xq-emF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="PsS-BV-4Mx" id="Mnq-RJ-mgw"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zHR-RY-agi" secondAttribute="trailing" id="FMb-kY-GK5"/>
+                            <constraint firstItem="zHR-RY-agi" firstAttribute="leading" secondItem="OuH-ki-ZpZ" secondAttribute="leading" id="Zh1-PT-QZw"/>
+                            <constraint firstItem="zHR-RY-agi" firstAttribute="top" secondItem="OuH-ki-ZpZ" secondAttribute="top" id="ita-U9-ctQ"/>
+                            <constraint firstAttribute="bottom" secondItem="zHR-RY-agi" secondAttribute="bottom" id="zzX-Uf-TIt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HoD-oL-xh9"/>
+                    <connections>
+                        <outlet property="audioQualityControl" destination="WDq-Hs-DNb" id="DW4-Sp-MLo"/>
+                        <outlet property="bitrateField" destination="nth-A8-hdw" id="kWg-li-Jvd"/>
+                        <outlet property="bitrateSlider" destination="ngu-Jb-1cE" id="AJG-Tq-Umb"/>
+                        <outlet property="cameraControl" destination="UMp-7o-jHb" id="5La-Ts-yD3"/>
+                        <outlet property="fpsControl" destination="YLH-yn-kJv" id="wKO-N6-iwK"/>
+                        <outlet property="joinButton" destination="yFB-zC-a0b" id="w13-Sq-hVP"/>
+                        <outlet property="resolutionControl" destination="JiY-ah-hQa" id="njh-Gs-MMk"/>
+                        <outlet property="roleControl" destination="3OV-sa-c5h" id="iqZ-Gg-sMZ"/>
+                        <outlet property="roomField" destination="5cd-mt-rMG" id="JTM-KZ-lY3"/>
+                        <outlet property="sceneControl" destination="tnZ-Vu-i72" id="YBP-5x-hBK"/>
+                        <outlet property="userField" destination="otg-eQ-Gjv" id="TVf-C3-8eQ"/>
+                        <outlet property="vendorControl" destination="LuO-wo-YPv" id="lcp-ro-r9W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Fd-zu-xlH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453.62318840579712" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

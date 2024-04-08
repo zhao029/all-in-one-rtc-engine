@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AllInOneRTCEngine'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A short description of AllInOneRTCEngine.'
 
 # This description is used to generate tags and improve search results.
@@ -23,17 +23,25 @@ Pod::Spec.new do |s|
   s.author           = { 'chengyuzhao' => 'chengyuzhao@tencent.com' }
   s.source           = { :git => 'https://github.com/zhao029/all-in-one-rtc-engine.git', :tag => s.version }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
+  
   s.ios.deployment_target = '10.0'
   s.static_framework = true
-
-  s.vendored_frameworks = 'AllInOneRTCEngine/AllInOneRTCEngine.xcframework'
+  
+  if ENV['RTCENGINE_USE_SOURCE'] == "1"
+      puts 'Pod Install Source Code'
+      s.source_files = 'AllInOneRTCEngine/Classes/**/*'
+      s.public_header_files = 'AllInOneRTCEngine/Classes/AIORTCEngine.h',
+                              'AllInOneRTCEngine/Classes/AIORTCEngineManager.h'
+  else
+       puts 'Pod Install use Framework'
+       s.vendored_frameworks = 'AllInOneRTCEngine/Framework/AllInOneRTCEngine.xcframework'
+  end
+  
   # s.resource_bundles = {
   #   'AllInOneRTCEngine' => ['AllInOneRTCEngine/Assets/*.png']
   # }
-  
+
   # s.frameworks = 'UIKit', 'MapKit'
-  
    s.dependency 'AgoraRtcEngine_iOS/RtcBasic', '~> 4.3.0'
    s.dependency 'TXLiteAVSDK_TRTC', '~> 11.7.15304'
 end
