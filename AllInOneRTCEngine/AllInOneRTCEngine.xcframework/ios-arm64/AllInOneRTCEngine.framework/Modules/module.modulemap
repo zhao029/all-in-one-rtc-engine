@@ -1,6 +1,0 @@
-framework module AllInOneRTCEngine {
-  umbrella header "AllInOneRTCEngine-umbrella.h"
-
-  export *
-  module * { export * }
-}
