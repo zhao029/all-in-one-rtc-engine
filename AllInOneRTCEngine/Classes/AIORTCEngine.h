@@ -280,6 +280,13 @@
 #endif
 
 
+#pragma mark - ThirdBeauty method
+/**
+ * 注册原始视频观测器对象。
+ * @note 可以获取原始视频数据，用于接入第三方美颜。
+ */
+- (BOOL)setVideoFrameDelegate:(id _Nullable)delegate;
+
 #pragma mark - TRTC only method
 /**
  显示TRTC仪表盘

@@ -512,6 +512,21 @@ static dispatch_once_t onceToken;
 }
 #endif
 
+
+#pragma mark - ThirdBeauty method
+
+- (BOOL)setVideoFrameDelegate:(id<TRTCVideoFrameDelegate> _Nullable)delegate {
+    if (![delegate conformsToProtocol:@protocol(TRTCVideoFrameDelegate)] && delegate != nil) {
+        LOGI("TRTCEngineWrapper, delegate not implement TRTCVideoFrameDelegate");
+        return false;
+    }
+    int succ = [self.trtcCloud setLocalVideoProcessDelegete:delegate pixelFormat:(TRTCVideoPixelFormat_Texture_2D) bufferType:(TRTCVideoBufferType_Texture)];
+    if (succ < 0) {
+        LOGI("TRTCEngineWrapper, %s fail, error code: %d", __FUNCTION__, succ);
+    }
+    return succ == 0;
+}
+
 #pragma mark - TRTC only method
 
 - (void)showDebugView:(NSInteger)showType

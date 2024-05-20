@@ -213,6 +213,15 @@ static dispatch_once_t onceToken;
     return [self.engine switchCamera];
 }
 
+
+#pragma mark - ThirdBeauty method
+- (BOOL)setVideoFrameDelegate:(id<AgoraVideoFrameDelegate> _Nullable)delegate {
+    if (![delegate conformsToProtocol:@protocol(AgoraVideoFrameDelegate)] && delegate != nil) {
+        return false;
+    }
+    return [self.engine setVideoFrameDelegate:delegate];
+}
+
 #pragma mark - TRTC only method
 
 - (void)showDebugView:(NSInteger)showType {
