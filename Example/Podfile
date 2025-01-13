@@ -3,5 +3,5 @@ platform :ios, '10.0'
 
 target 'LiteAVApollo' do
    use_frameworks!
-   pod 'AllInOneRTCEngine', :path => '../'
+   pod 'AllInOneRTCEngine'
 end

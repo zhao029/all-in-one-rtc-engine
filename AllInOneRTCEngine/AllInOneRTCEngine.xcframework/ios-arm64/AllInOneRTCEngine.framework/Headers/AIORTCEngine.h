@@ -65,7 +65,7 @@
 /**
  * 获取当前网络连接状态。
  *
- * @return 当前网络连接状态.,详见 AgoraConnectionState。
+ * @return 当前网络连接状态,详见 AgoraConnectionState。
  */
 - (AgoraConnectionState)getConnectionState NS_SWIFT_NAME(getConnectionState());
 
@@ -129,6 +129,100 @@
  * @param profile 音频编码属性，包含采样率、码率、编码模式和声道数
  */
 - (int)setAudioProfile:(AgoraAudioProfile)profile NS_SWIFT_NAME(setAudioProfile(_:));
+
+/**
+ * 设置音频场景。
+ *
+ * @note TRTC不支持设置音频场景。
+ * @param scenario 音频场景，建议优先使用setAudioProfile调整音频质量
+ */
+- (int)setAudioScenario:(AgoraAudioScenario)scenario NS_SWIFT_NAME(setAudioScenario(_:));
+
+/**
+ * 设置 SDK 对 Audio Session 的操作权限。
+ *
+ *
+ * @param restriction SDK 对 Audio Session 的操作权限，详见 AgoraAudioSessionOperationRestriction。
+ */
+- (void)setAudioSessionOperationRestriction:(AgoraAudioSessionOperationRestriction)restriction NS_SWIFT_NAME(setAudioSessionOperationRestriction(_:));
+
+/**
+ * 开始播放音乐文件。
+ *
+ * @param filePath 音效文件的完整路径或 URL 地址。支持的音频格式包括 MP3、AAC、M4A、WAV。
+ * @param loopback 是否只在本地播放音乐文件
+ * @param cycle 音乐文件的播放次数。 >= 0 播放次数。例如，0 表示不播放；1 表示播放 1 次；-1: 无限循环播放。
+ * @param startPos 音乐开始播放时间点，单位：毫秒。
+ */
+- (int)startAudioMixing:(NSString* _Nonnull)filePath
+               loopback:(BOOL)loopback
+                  cycle:(NSInteger)cycle
+               startPos:(NSInteger)startPos NS_SWIFT_NAME(startAudioMixing(_:loopback:cycle:startPos:));
+
+/**
+ * 停止播放音乐文件。
+ *
+ */
+- (int)stopAudioMixing;
+
+/**
+ * 调节音乐文件的播放音量。
+ *
+ * @param volume 音乐文件音量范围为 0~100。默认值：60。
+ */
+- (int)adjustAudioMixingVolume:(NSInteger)volume NS_SWIFT_NAME(adjustAudioMixingVolume(_:));
+
+/**
+ * 恢复播放音乐文件。
+ *
+ */
+- (int)resumeAudioMixing NS_SWIFT_NAME(resumeAudioMixing());
+
+/**
+ * 暂停播放音乐文件。
+ *
+ */
+- (int)pauseAudioMixing NS_SWIFT_NAME(pauseAudioMixing());
+
+/**
+ * 获取音乐文件的播放进度。
+ *
+ * Call this API when the user is in a channel.
+ * @return
+ * - >= 0：方法调用成功，返回当前音乐文件播放进度（ms）
+ * - = -1 : 失败
+ */
+- (int)getAudioMixingCurrentPosition NS_SWIFT_NAME(getAudioMixingCurrentPosition());
+
+/**
+ * 开始播放定的本地或在线音效文件。
+ * @param soundId 音乐 ID。允许播放多路音乐，因此需要使用 ID 进行标记，用于控制音乐的开始、停止、音量等。
+ * @param loopCount  音乐文件的播放次数。 取值范围为0 - 任意正整数，默认值：0。0 表示播放音乐一次；1 表示播放音乐两次；以此类推。
+ * @param pitch 音调，默认值是0.0f，范围是：[-1 ~ 1] 之间的浮点数。
+ * @param pan 该参数TRTC暂不支持。
+ * @param gain 音量大小，取值范围为0 - 100；默认值：60。
+ * @param publish 是否将音效发布至远端。
+ * @param startPos 音效文件的播放位置，单位为毫秒。
+ *
+ * @note 注意
+ *   1. 如果要多次播放同一首背景音乐，请不要每次播放都分配一个新的 ID，我们推荐使用相同的 ID。
+ *   2. 若您希望同时播放多首不同的音乐，请为不同的音乐分配不同的 ID 进行播放。
+ *   3. 如果使用同一个 ID 播放不同音乐，SDK 会先停止播放旧的音乐，再播放新的音乐。
+ */
+- (int)playEffect:(int)soundId
+         filePath:(NSString* _Nonnull)filePath
+        loopCount:(NSInteger)loopCount
+            pitch:(double)pitch
+              pan:(double)pan
+             gain:(NSInteger)gain
+          publish:(BOOL)publish
+         startPos:(int)startPos NS_SWIFT_NAME(playEffect(_:filePath:loopCount:pitch:pan:gain:publish:startPos:));
+
+/**
+ * 停止播放指定音效文件。
+ *
+ */
+- (int)stopEffect:(int)soundId NS_SWIFT_NAME(stopEffect(_:));
 
 /** 调节音频采集信号音量。
 
@@ -194,7 +288,7 @@
 /**
  * 设置视频编码属性。
  *
- *@note 仅支持dimensions、frameRate、bitrate、minbitrate、orientationMode几项配置。
+ * @note 仅支持dimensions、frameRate、bitrate、minbitrate、orientationMode几项配置。
  * bitrate推荐取值：请参见TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。比如：TRTCVideoResolution_1280_720 对应 1200kbps 的目标码率，您也可以设置为 1500kbps 用来获得更好的观感清晰度。
  * minVideoBitrate推荐取值：您可以通过同时设置 videoBitrate 和 minVideoBitrate 两个参数，用于约束 SDK 对视频码率的调整范围：
  * 如果您追求 弱网络下允许卡顿但要保持清晰 的效果，可以设置 minVideoBitrate 为 videoBitrate 的 60%。
@@ -278,7 +372,6 @@
  */
 - (int)switchCamera NS_SWIFT_NAME(switchCamera());
 #endif
-
 
 #pragma mark - ThirdBeauty method
 /**
