@@ -35,5 +35,5 @@ Pod::Spec.new do |s|
 
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'AgoraRtcEngine_iOS/RtcBasic', '~> 4.3.2'
-   s.dependency 'TXLiteAVSDK_TRTC', '~> 11.7.15304'
+   s.dependency 'TXLiteAVSDK_TRTC', '~> 12.2.16956'
 end

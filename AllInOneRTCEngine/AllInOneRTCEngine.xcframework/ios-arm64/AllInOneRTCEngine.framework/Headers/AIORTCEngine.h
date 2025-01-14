@@ -270,12 +270,18 @@
 
 #pragma mark Core Video
 /**
- 启用视频模块
- 
+ * 启用视频模块
+ *
  */
 - (int)enableVideo NS_SWIFT_NAME(enableVideo());
 
 - (int)disableVideo NS_SWIFT_NAME(disableVideo());
+
+/**
+ * 开关本地视频采集。
+ *
+ */
+- (int)enableLocalVideo:(BOOL)enabled;
 
 - (int)muteAllRemoteVideoStreams:(BOOL)mute NS_SWIFT_NAME(muteAllRemoteVideoStreams(_:));
 
@@ -363,6 +369,19 @@
  */
 - (int)setupRemoteVideo:(AgoraRtcVideoCanvas * _Nonnull)remote NS_SWIFT_NAME(setupRemoteVideo(_:));
 
+/** 开始或更新跨频道媒体流转发。
+ *
+ * @param config 跨频道媒体流转发参数配置。详见 AgoraChannelMediaRelayConfiguration。
+ * @note TRTC场景下，destinationInfos中的channelName填写目标房间ID，uid填写目标主播ID
+ * @note 成功调用该方法后，SDK 会触发 rtcEngine:channelMediaRelayStateDidChange:error: 回调，报告当前的跨频道媒体流转发状态。
+ */
+- (int)startOrUpdateChannelMediaRelay:(AgoraChannelMediaRelayConfiguration * _Nonnull)config NS_SWIFT_NAME(startOrUpdateChannelMediaRelay(_:));
+
+/** 停止跨频道媒体流转发, 一旦停止，主播会退出所有目标频道。
+  * @note 成功调用该方法后，SDK 会触发 rtcEngine:channelMediaRelayStateDidChange:error: 回调。
+ */
+- (int)stopChannelMediaRelay NS_SWIFT_NAME(stopChannelMediaRelay());
+
 #pragma mark Camera Control
 
 #if TARGET_OS_IPHONE
@@ -373,12 +392,40 @@
 - (int)switchCamera NS_SWIFT_NAME(switchCamera());
 #endif
 
+/**
+ * 设置是否打开闪光灯。
+ * 
+ */
+- (BOOL)setCameraTorchOn:(BOOL)isOn NS_SWIFT_NAME(setCameraTorchOn(_:));
+
+/**
+ * 开始进行网速测试（进入房间前使用）
+ *
+ * @param config 网络探测配置，详见 AgoraLastmileProbeConfig。
+ *
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)startLastmileProbeTest:(AgoraLastmileProbeConfig *_Nullable)config NS_SWIFT_NAME(startLastmileProbeTest(_:));
+
 #pragma mark - ThirdBeauty method
 /**
  * 注册原始视频观测器对象。
  * @note 可以获取原始视频数据，用于接入第三方美颜。
  */
-- (BOOL)setVideoFrameDelegate:(id _Nullable)delegate;
+- (BOOL)setVideoFrameDelegate:(id _Nullable)delegate NS_SWIFT_NAME(setVideoFrameDelegate(_:));
+
+/**
+ * 注册原始视频观测器对象。
+ * @param delegate 自定义预处理回调，详见 ﻿TRTCVideoFrameDelegate
+ * @param pixelFormat 指定回调的像素格式，该参数仅TRTC支持，详见 TRTCVideoPixelFormat。
+ * @param bufferType 指定回调的像素格式，该参数仅TRTC支持，详见 TRTCVideoBufferType。
+ * @note 可以获取原始视频数据，用于接入第三方美颜。
+ */
+- (BOOL)setVideoFrameDelegate:(id _Nullable)delegate
+                  pixelFormat: (NSInteger)pixelFormat
+                   bufferType:(NSInteger)bufferType NS_SWIFT_NAME(setVideoFrameDelegate(_:pixelFormat:bufferType:));
 
 #pragma mark - TRTC only method
 /**
@@ -399,6 +446,40 @@
  @param margin 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。
  */
 - (void)setDebugViewMargin:(NSString *_Nullable)userId margin:(UIEdgeInsets)margin;
+
+/**
+ * 判断当前是否为前置摄像头（仅适用于移动端）
+ * @note 该方法仅TRTC支持。
+ */
+- (BOOL)isFrontCamera NS_SWIFT_NAME(isFrontCamera());
+
+#pragma mark - Others
+/**
+ * 启用/禁用插件。
+ * @note TRTC不支持
+ */
+- (int)enableExtensionWithVendor:(NSString * _Nonnull)provider
+                       extension:(NSString * _Nonnull)extension
+                         enabled:(BOOL)enabled
+                      sourceType:(AgoraMediaSourceType)sourceType NS_SWIFT_NAME(enableExtension(withVendor:extension:enabled:sourceType:));
+
+/**
+ * SDK 的 JSON 配置信息，用于提供技术预览或特别定制功能。
+ * @note TRTC不支持
+ */
+- (int)setParameters:(NSString * _Nonnull)options NS_SWIFT_NAME(setParameters(_:));
+
+/**
+ * 发送自定义上报消息。
+ * @note TRTC不支持
+ */
+- (int)sendCustomReportMessage:(NSString * _Nullable)messageId
+                      category:(NSString * _Nullable)category
+                         event:(NSString * _Nullable)event
+                         label:(NSString * _Nullable)label
+                         value:(NSInteger)value NS_SWIFT_NAME(sendCustomReportMessage(_:category:event:label:value:));
+
+
 @end
 
 #endif /* RTCEngine_h */
