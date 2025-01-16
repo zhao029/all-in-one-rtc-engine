@@ -402,12 +402,22 @@
  * 开始进行网速测试（进入房间前使用）
  *
  * @param config 网络探测配置，详见 AgoraLastmileProbeConfig。
+ * @param uid 用户标识, TRTC必传，agora下该参数不生效。
+ * @param token  用户签名, TRTC必传，agora下该参数不生效。
+ *
  *
  * @return
  * - 0: Success.
  * - < 0: Failure.
  */
-- (int)startLastmileProbeTest:(AgoraLastmileProbeConfig *_Nullable)config NS_SWIFT_NAME(startLastmileProbeTest(_:));
+- (int)startLastmileProbeTest:(AgoraLastmileProbeConfig *_Nullable)config uid:(NSInteger)uid token:(NSString *_Nullable)token NS_SWIFT_NAME(startLastmileProbeTest(_:uid:token:));
+
+/**
+ * 停止网络测速.。
+ *
+ */
+- (int)stopLastmileProbeTest NS_SWIFT_NAME(stopLastmileProbeTest());
+
 
 #pragma mark - ThirdBeauty method
 /**

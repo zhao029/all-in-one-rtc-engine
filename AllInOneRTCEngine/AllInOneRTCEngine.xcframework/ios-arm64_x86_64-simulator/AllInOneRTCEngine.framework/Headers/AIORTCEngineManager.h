@@ -14,11 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AIORTCEngineManager : NSObject
 + (id<AIORTCEngine> _Nonnull)sharedEngineWithAppId:(NSString *_Nonnull)appId
                                                delegate:(id<AgoraRtcEngineDelegate> _Nullable)delegate
-                                                useTRTC: (BOOL)useTRTC;
+                                                useTRTC: (BOOL)useTRTC NS_SWIFT_NAME(sharedEngineWithAppId(_:delegate:useTRTC:));
 
 + (id<AIORTCEngine> _Nonnull)sharedEngineWithConfig:(AgoraRtcEngineConfig *_Nonnull)config
                                                 delegate:(id<AgoraRtcEngineDelegate> _Nullable)delegate
-                                                 useTRTC: (BOOL)useTRTC;
+                                                 useTRTC: (BOOL)useTRTC  NS_SWIFT_NAME(sharedEngineWithConfig(_:delegate:useTRTC:));
 
 + (void)destroy;
 
