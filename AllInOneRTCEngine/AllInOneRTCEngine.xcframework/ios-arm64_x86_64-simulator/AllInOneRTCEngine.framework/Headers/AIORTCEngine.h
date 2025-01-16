@@ -418,6 +418,14 @@
  */
 - (int)stopLastmileProbeTest NS_SWIFT_NAME(stopLastmileProbeTest());
 
+/**
+ * 设置是否开启 AI 降噪功能并设置降噪模式。
+ * @note TRTC不支持该方法，通过控制台开启
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)setAINSMode:(BOOL)enabled mode:(AUDIO_AINS_MODE)mode NS_SWIFT_NAME(setAINSMode(_:mode:));
 
 #pragma mark - ThirdBeauty method
 /**
