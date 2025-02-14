@@ -195,6 +195,26 @@
 - (int)getAudioMixingCurrentPosition NS_SWIFT_NAME(getAudioMixingCurrentPosition());
 
 /**
+ * 设置音乐文件的播放位置。
+ *
+ *
+ * @param pos 整数。进度条位置，单位为毫秒。
+ * @return
+ * - 0: Success.
+ * - < 0: Failure.
+ */
+- (int)setAudioMixingPosition:(NSInteger)pos NS_SWIFT_NAME(setAudioMixingPosition(_:));
+
+/**
+ * 获取音乐文件总时长。
+ *
+ *
+ * @return
+ * - >= 0: 方法调用成功则返回音乐文件时长
+ * - < 0: Failure.
+ */
+- (int)getAudioMixingDuration NS_SWIFT_NAME(getAudioMixingDuration());
+/**
  * 开始播放定的本地或在线音效文件。
  * @param soundId 音乐 ID。允许播放多路音乐，因此需要使用 ID 进行标记，用于控制音乐的开始、停止、音量等。
  * @param loopCount  音乐文件的播放次数。 取值范围为0 - 任意正整数，默认值：0。0 表示播放音乐一次；1 表示播放音乐两次；以此类推。
@@ -426,6 +446,17 @@
  * - < 0: Failure.
  */
 - (int)setAINSMode:(BOOL)enabled mode:(AUDIO_AINS_MODE)mode NS_SWIFT_NAME(setAINSMode(_:mode:));
+
+/**
+  * 设置日志文件
+ */
+- (int)setLogFile:(NSString * _Nonnull)filePath NS_SWIFT_NAME(setLogFile(_:));
+
+/**
+ * 设置 SDK 输出的日志文件的大小。
+ * TRTC 不支持设置
+ */
+- (int)setLogFileSize:(NSUInteger)fileSizeInKBytes NS_SWIFT_NAME(setLogFileSize(_:));
 
 #pragma mark - ThirdBeauty method
 /**
