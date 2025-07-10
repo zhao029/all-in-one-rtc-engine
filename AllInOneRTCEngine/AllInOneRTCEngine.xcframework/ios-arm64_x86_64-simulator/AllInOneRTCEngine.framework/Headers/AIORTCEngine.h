@@ -89,6 +89,7 @@
  @param volume 音量，取值范围为 [0,400]。
  * 0: Mute
  * 400: 默认
+ * @note 当您创建的实例为 TRTCCloud 时，超过 100 的值将被限制为 100。
  */
 - (int)adjustPlaybackSignalVolume:(NSInteger)volume NS_SWIFT_NAME(adjustPlaybackSignalVolume(_:));
 
@@ -251,6 +252,7 @@
 
  * 0: 静音
  * 400: （默认）原始音量。
+ * @note 当您创建的实例为 TRTCCloud 时，超过 100 的值将被限制为 100。
  */
 - (int)adjustRecordingSignalVolume:(NSInteger)volume NS_SWIFT_NAME(adjustRecordingSignalVolume(_:));
 
@@ -274,7 +276,7 @@
  * 设置耳返音量
  *
  * @param volume 音量大小，取值范围为 0 - 400，默认值：400。
- *
+ * @note 当您创建的实例为 TRTCCloud 时，超过 100 的值将被限制为 100。
  */
 - (int)setInEarMonitoringVolume:(NSInteger)volume NS_SWIFT_NAME(setInEarMonitoringVolume(_:));
 
