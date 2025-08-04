@@ -530,7 +530,74 @@
                          event:(NSString * _Nullable)event
                          label:(NSString * _Nullable)label
                          value:(NSInteger)value NS_SWIFT_NAME(sendCustomReportMessage(_:category:event:label:value:));
+/**
+ * 获取 SDK 版本信息
+ */
+- (NSString * _Nonnull)getSdkVersion NS_SWIFT_NAME(getSdkVersion());
 
+/**
+ * 设置日志输出等级。
+ * @param filter 日志过滤等级：详细请参考 Agora 文档。
+ */
+- (int)setLogFilter:(NSUInteger)filter NS_SWIFT_NAME(setLogFilter(_:));
+
+/**
+ * 设置本地音效混响
+ * @param reverbKey 混响音效 Key。该方法共有 5 个混响音效 Key，详细请参考 Agora 文档。
+ * @param value 各混响音效 Key 所对应的值。
+ * @note 当您创建的实例为 TRTCCloud 时，reverbKey 参数无效，value 对应 TRTC混响特效,详情请参考 TRTC 文档中 TXVoiceReverbType 定义。
+ */
+- (int)setLocalVoiceReverbOfType:(AgoraAudioReverbType)reverbType withValue:(NSInteger)value NS_SWIFT_NAME(setLocalVoiceReverbOf(_:withValue:));
+
+/**
+ * 查询设备评分等级
+ * @note 当您创建的实例为 TRTCCloud 时，调用该接口始终返回 0。
+ */
+- (int)queryDeviceScore NS_SWIFT_NAME(queryDeviceScore());
+
+/**
+ * 指定背景音乐的播放音轨
+ * @param audioIndex 取值范围为 [0, getAudioTrackCount()]。
+ */
+- (int)selectAudioTrack:(NSInteger)index NS_SWIFT_NAME(selectAudioTrack(_:));
+
+/**
+ * 获取当前音乐文件的音轨索引
+ */
+- (int)getAudioTrackCount NS_SWIFT_NAME(getAudioTrackCount());
+
+/**
+ * 获取音乐文件的本地播放音量
+ */
+- (int)getAudioMixingPlayoutVolume NS_SWIFT_NAME(getAudioMixingPlayoutVolume());
+
+/**
+ * 实时调整音效文件的播放音量。
+ * @param soundId 指定音效的 ID。每个音效均有唯一的 ID。
+ * @param volume 播放音量。取值范围为 [0,100]。默认值为 100，表示原始音量。
+ */
+- (int)setVolumeOfEffect:(int)soundId withVolume:(int)volume NS_SWIFT_NAME(setVolumeOfEffect(_:withVolume:));
+
+/**
+ * 发送数据流。
+ * @param streamId 数据流 ID。可以通过 createDataStream [2/2] 获取。
+ * @param data 待发送的数据。
+ *
+ * @note 当您创建的实例为 TRTCCloud 时，默认消息是有序且可靠的，若您仅要求发送消息延迟低、不要求消息有序且发送可靠，可以通过 TRTC 实例调用 sendCustomCmdMsg 设置 ordered 和 reliable参数。
+ */
+- (int)sendStreamMessage:(NSInteger)streamId data:(NSData * _Nonnull)data NS_SWIFT_NAME(sendStreamMessage(_:data:));
+
+/**
+ * 创建数据流。
+ * @param streamId 创建好的数据流 ID。
+ * @param reliable 是否保证数据可靠性，即接收方是否需要在数据发送后的 5 秒内接收。
+ * @param ordered 是否保证数据有序性，即接收方是否需要收到有序的数据。
+ *
+ * @note 当您创建的实例为 TRTCCloud 时，该方法无效、返回值始终为0，TRTC 发送消息无需创建数据流。
+ */
+- (int)createDataStream:(NSInteger * _Nonnull)streamId
+               reliable:(BOOL)reliable
+                ordered:(BOOL)ordered NS_SWIFT_NAME(createDataStream(_:reliable:ordered:));
 
 @end
 
