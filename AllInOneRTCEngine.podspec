@@ -27,13 +27,24 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
   s.static_framework = true
   
-  s.vendored_frameworks = 'AllInOneRTCEngine/AllInOneRTCEngine.xcframework'
-  
   # s.resource_bundles = {
   #   'AllInOneRTCEngine' => ['AllInOneRTCEngine/Assets/*.png']
   # }
 
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'AgoraRtcEngine_iOS/RtcBasic', '~> 4.3.2'
-   s.dependency 'TXLiteAVSDK_TRTC', '>= 12.2.16956'
+  
+  s.default_subspec = 'Standard'
+
+  s.subspec 'Standard' do |standard|
+    standard.vendored_frameworks = 'AllInOneRTCEngine/AllInOneRTCEngine.xcframework'
+    standard.dependency 'AgoraRtcEngine_iOS/RtcBasic', '~> 4.3.2'
+    standard.dependency 'TXLiteAVSDK_TRTC', '>= 12.2.16956'
+  end
+  
+  s.subspec 'Special' do |special|
+    special.vendored_frameworks = 'AllInOneRTCEngine/AllInOneRTCEngine.xcframework'
+    special.dependency 'AgoraRtcEngine_Special_iOS', '~> 4.3.2'
+    special.dependency 'TXLiteAVSDK_TRTC', '>= 12.2.16956'
+  end
+  
 end
