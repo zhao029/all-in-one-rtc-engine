@@ -599,6 +599,14 @@
                reliable:(BOOL)reliable
                 ordered:(BOOL)ordered NS_SWIFT_NAME(createDataStream(_:reliable:ordered:));
 
+
+/**
+ * 获取底层SDK实例
+ *
+ * @note 如果 SDK 没有初始化，可能会为空，注意判断
+ */
+- (id _Nullable)getInstance NS_SWIFT_NAME(getInstance());
+
 @end
 
 #endif /* RTCEngine_h */

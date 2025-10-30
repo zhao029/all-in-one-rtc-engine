@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/AIORTCEngine.h</key>
 		<data>
-		q//0UoEobMkX/jUEEzZUtEnixhI=
+		KA8+wKmwOII6g5owXK5n6nZ+0B8=
 		</data>
 		<key>Headers/AIORTCEngineManager.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		lWKseZ9C9uoqU/V13j3IdfbeTaY=
+		MWyq2bIk42O78rCEIap0L6L/3Ag=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -29,21 +29,13 @@
 	<dict>
 		<key>Headers/AIORTCEngine.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			q//0UoEobMkX/jUEEzZUtEnixhI=
-			</data>
 			<key>hash2</key>
 			<data>
-			9QpefWP3+rz9kxmWEdeaGcdZzf+tcU57E8BLPH8qOXA=
+			Yi+GJ2/AL858yV+U2XqTvGX+WK5an7l/LLL2UbS0hV8=
 			</data>
 		</dict>
 		<key>Headers/AIORTCEngineManager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NCqNLLNX/E7CTb9PPkU3RttyOD0=
-			</data>
 			<key>hash2</key>
 			<data>
 			KqNGwN41tOvxObxQbyHs9z3KkwAF3J36qNj31JwLypA=
@@ -51,10 +43,6 @@
 		</dict>
 		<key>Headers/AllInOneRTCEngine-umbrella.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			finzJmSeUSE3A2o7drdAhqV3hAU=
-			</data>
 			<key>hash2</key>
 			<data>
 			rahQeV/sYgU8BfTke0aHbrghtozx1dvhAlUjVG07ZMc=
@@ -62,10 +50,6 @@
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JDLYnfucT821rBFhvNlfJoEcxjU=
-			</data>
 			<key>hash2</key>
 			<data>
 			zGFh45Fx407ZDoUflogxS5ppg5Dp9DWUjTlEGyJc/w4=
